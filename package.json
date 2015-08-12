@@ -1,0 +1,30 @@
+{
+  "name": "pregunta",
+  "version": "1.0.0",
+  "description": "Hassle free CLI input",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/carlosascari/pregunta.git"
+  },
+  "bugs": "https://github.com/carlosascari/pregunta/issues",
+  "keywords": [
+    "ask",
+    "question",
+    "input",
+    "user input",
+    "preguntar",
+    "question",
+    "pregunta",
+    "interactive question",
+    "interactive input",
+    "pregunta interactiva",
+    "questionnaire",
+    "input"
+  ],
+  "author": "Ascari Gutierrez Hermosillo <carlos.ascari.x@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.4.2"
+  }
+}
