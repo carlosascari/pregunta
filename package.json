@@ -1,6 +1,6 @@
 {
   "name": "pregunta",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Hassle free CLI input",
   "main": "index.js",
   "repository": {
@@ -22,7 +22,7 @@
     "questionnaire",
     "input"
   ],
-  "author": "Ascari Gutierrez Hermosillo <carlos.ascari.x@gmail.com>",
+  "author": "Carlos Ascari Gutierrez Hermosillo <ascari.gtz@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "async": "^1.4.2"

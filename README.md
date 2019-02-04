@@ -41,6 +41,8 @@ pregunta
 })
 ```
 
+**Note**: Use `.var('variableName')` to specify the name of the variable to hold the answer, otherwise the question itself will be the name of the variable.
+
 **Yes or No questions**
 
 You can use the `yn` method to ask yes/no questions. The second argument if set becomes the default value
@@ -132,6 +134,9 @@ var statement = 'choose a pokemon:\n\n\t' + pokemon.join('\n\t') + '\n\n'
 **.choose**(*String*, *Array*) 
 **.choose**(*String*, *Array*, *Number*) 
 **.choose**(*String*, *Array*, *String*) 
+
+### **.var**(*variable_name*) 
+**.var**(*String*) 
 
 ### **.default**(*value*) 
 **.default**(*String*) 
