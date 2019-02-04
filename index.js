@@ -156,7 +156,7 @@ p.done = function(callback) {
     function Test() {
       return questions.length;
     },
-    function Iterate(subcallback) {
+    function Iterate(next) {
       const qObject = questions.shift();
       const question = qObject.question  || '';
       const fallback = (qObject.fallback) ? format(' (%s)', qObject.fallback) : '';
@@ -173,22 +173,22 @@ p.done = function(callback) {
             if (qObject.fallback) {
               qObject.answer = parser(qObject).fallback;
               answers.push(qObject);
-              subcallback(null);
+              next(null);
             } else {
               if (validation) {
                 if (validation(line)) {
                   qObject.answer = parser(line);
                   answers.push(qObject);
-                  subcallback(null);
+                  next(null);
                 } else {
                   if (invalid) console.log(invalid(line));
                   questions.unshift(qObject);
-                  subcallback(null);
+                  next(null);
                 }
               } else {
                 console.log('not optional');
                 questions.unshift(qObject);
-                subcallback(null);
+                next(null);
               }
             }
           } else {
@@ -196,26 +196,27 @@ p.done = function(callback) {
               if (validation(line)) {
                 qObject.answer = parser(line);
                 answers.push(qObject);
-                subcallback(null);
+                next(null);
               } else {
                 if (invalid) console.log(invalid(line));
                 questions.unshift(qObject);
-                subcallback(null);
+                next(null);
               }
             } else {
               qObject.answer = parser(line);
               answers.push(qObject);
-              subcallback(null);
+              next(null);
             }
           }
         }
       )
+      reader.resume();
       if (pre) console.log(pre);
       reader.setPrompt(prompt);
       reader.prompt();
     },
     function Done(error) {
-      reader.close();
+      reader.pause();
       callback(error, toQuestionnaire(answers));
       questions.length = 0;
       answers.length = 0;
